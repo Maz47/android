@@ -5,4 +5,5 @@
     <color name="colorPrimaryLight">#5E92F3</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorPink">#C2185B</color>
+    <color name="colorPinkDark">#8b0032</color>
 </resources>

@@ -1,43 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/my_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_gravity="bottom|end"
-        app:srcCompat="@drawable/ic_add"
-        app:backgroundTint="@color/colorPrimary"
-        app:rippleColor="@color/colorPrimaryDark"/>
+    <fragment
+        android:id="@+id/todoListFragment"
+        android:name="com.maz.org.myapplication.TodoListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/my_second_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginRight="84dp"
-        android:layout_gravity="bottom|end"
-        app:srcCompat="@drawable/ic_event"
-        app:backgroundTint="@color/colorPink"
-        app:fabSize="mini"
-        app:rippleColor="@color/colorPrimary"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/my_third_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginRight="130dp"
-        android:layout_gravity="bottom|end"
-        app:srcCompat="@drawable/ic_audiotrack"
-        app:backgroundTint="@color/colorPink"
-        app:fabSize="mini"
-        app:rippleColor="@color/colorPrimary"/>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>
