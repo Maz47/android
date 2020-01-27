@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="bottom|end"
+        app:tint="@android:color/white"
         app:srcCompat="@drawable/ic_add"
         app:backgroundTint="@color/colorPrimary"
         app:rippleColor="@color/colorPrimaryDark"/>
@@ -24,6 +25,7 @@
         android:layout_marginBottom="84dp"
         android:layout_marginRight="24dp"
         android:layout_gravity="bottom|end"
+        app:tint="@android:color/white"
         app:srcCompat="@drawable/ic_event"
         app:backgroundTint="@color/colorPink"
         app:fabSize="mini"
@@ -36,6 +38,7 @@
         android:layout_marginBottom="130dp"
         android:layout_marginRight="24dp"
         android:layout_gravity="bottom|end"
+        app:tint="@android:color/white"
         app:srcCompat="@drawable/ic_audiotrack"
         app:backgroundTint="@color/colorPink"
         app:fabSize="mini"
