@@ -1,21 +1,14 @@
 package com.maz.org.myapplication
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.maz.org.myapplication.gui.TodoTaskListAdapter
-import com.maz.org.myapplication.room.viewmodels.TodoTaskViewModel
 import com.maz.org.myapplication.utilities.ViewAnimator
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var todoTaskViewModel: TodoTaskViewModel
 
     private var isRotated = false
     private var rotation = 0f
@@ -25,15 +18,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         title = "My Application"
-
-        val adapter = TodoTaskListAdapter(this)
-        recyclerview.adapter = adapter
-        recyclerview.layoutManager = LinearLayoutManager(this)
-
-        todoTaskViewModel = ViewModelProvider(this).get(TodoTaskViewModel::class.java)
-        todoTaskViewModel.allTodoTasks.observe(this, Observer { todoTasks ->
-            todoTasks.let { adapter }
-        })
 
         ViewAnimator().init(my_second_fab)
         ViewAnimator().init(my_third_fab)
@@ -53,13 +37,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        my_second_fab.setOnClickListener {view ->
+        my_second_fab.setOnClickListener {
+            Toast.makeText(this, "Event", Toast.LENGTH_LONG).show()
             ViewAnimator().rotateFab(my_fab, 0f)
             ViewAnimator().hideAdditionalFabs(my_second_fab)
             ViewAnimator().hideAdditionalFabs(my_third_fab)
             isRotated = false
-            var intent = Intent(this, NewTodoActivity::class.java)
-            startActivity(intent)
         }
 
         my_third_fab.setOnClickListener {
@@ -74,6 +57,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menuOne -> {
+                Toast.makeText(this, "Menu one selected!", Toast.LENGTH_LONG).show()
+                true
+            }
+            R.id.menuTwo -> {
+                Toast.makeText(this, "Menu two selected!", Toast.LENGTH_LONG).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }
