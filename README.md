@@ -8,5 +8,5 @@ My Android App Collection
 # My Application
 
 * Animated FAB with extending Mini-Fabs
-* fragmented layouts
-* navigation over navigation.xml
+* Fragment Layout
+* Navigation with ```navigation.xml```
