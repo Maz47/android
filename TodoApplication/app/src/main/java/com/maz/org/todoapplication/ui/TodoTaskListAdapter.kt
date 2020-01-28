@@ -12,7 +12,7 @@ import com.maz.org.todoapplication.room.TodoTask
 class TodoTaskListAdapter internal constructor(context: Context) : RecyclerView.Adapter<TodoTaskListAdapter.TodoTaskViewHolder>(){
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private val todoTasks = emptyList<TodoTask>()
+    private var todoTasks = emptyList<TodoTask>()
 
     class TodoTaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -35,5 +35,10 @@ class TodoTaskListAdapter internal constructor(context: Context) : RecyclerView.
 
     override fun onBindViewHolder(holder: TodoTaskViewHolder, position: Int) {
         holder.bind(todoTasks[position])
+    }
+
+    internal fun setTodoTasks(todoTasks: List<TodoTask>) {
+        this.todoTasks = todoTasks
+        notifyDataSetChanged()
     }
 }

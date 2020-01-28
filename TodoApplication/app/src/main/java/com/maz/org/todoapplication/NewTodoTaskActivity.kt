@@ -30,7 +30,9 @@ class NewTodoTaskActivity : AppCompatActivity() {
                 val description = description_input.text.toString()
                 replyIntent.putExtra(REPLY_EXTRA_TITLE, title)
                 replyIntent.putExtra(REPLY_EXTRA_DESCRIPTION, description)
+                setResult(Activity.RESULT_OK, replyIntent)
             }
+            finish()
         }
 
     }
