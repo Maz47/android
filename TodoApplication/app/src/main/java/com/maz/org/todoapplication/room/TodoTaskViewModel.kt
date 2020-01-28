@@ -20,4 +20,8 @@ class TodoTaskViewModel(application: Application) : AndroidViewModel(application
     fun create(todoTask: TodoTask) = viewModelScope.launch {
         repository.create(todoTask)
     }
+
+    fun delete(todoTask: TodoTask) = viewModelScope.launch {
+        repository.delete(todoTask.id)
+    }
 }

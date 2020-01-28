@@ -4,16 +4,19 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.maz.org.todoapplication.room.TodoTask
 import com.maz.org.todoapplication.room.TodoTaskViewModel
+import com.maz.org.todoapplication.ui.OnItemClickListener
 import com.maz.org.todoapplication.ui.TodoTaskListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private lateinit var todoTaskViewModel: TodoTaskViewModel
 
@@ -25,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val adapter = TodoTaskListAdapter(this)
+        val adapter = TodoTaskListAdapter(this, this)
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(this)
 
@@ -51,4 +54,9 @@ class MainActivity : AppCompatActivity() {
             if (title.trim().isNotEmpty()) todoTaskViewModel.create(TodoTask(title, description))
         }
     }
+
+    override fun onItemClicked(todoTask: TodoTask) {
+        todoTaskViewModel.delete(todoTask)
+    }
+
 }
