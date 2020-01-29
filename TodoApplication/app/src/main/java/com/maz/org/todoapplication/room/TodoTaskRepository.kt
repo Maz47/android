@@ -8,6 +8,8 @@ class TodoTaskRepository(private val todoTaskDAO: TodoTaskDAO) {
 
     suspend fun create(todoTask: TodoTask) = todoTaskDAO.create(todoTask)
 
+    suspend fun update(id: Int, title: String, description: String, completed: Boolean) = todoTaskDAO.update(id, title, description, completed)
+
     suspend fun delete(id: Int) = todoTaskDAO.delete(id)
 
 }

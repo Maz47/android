@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TodoApplication</string>
+    <string name="todo_task_layout_dummy_title">Todo Task Title</string>
 </resources>

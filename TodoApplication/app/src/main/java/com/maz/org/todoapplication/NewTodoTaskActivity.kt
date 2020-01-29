@@ -19,7 +19,7 @@ class NewTodoTaskActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_todo_task)
         title = "Add new Todo"
 
-        cancel_btn.setOnClickListener { finish() }
+        back_button.setOnClickListener { finish() }
         save_btn.setOnClickListener {
             val replyIntent = Intent()
             if (TextUtils.isEmpty(title_input.text)) {

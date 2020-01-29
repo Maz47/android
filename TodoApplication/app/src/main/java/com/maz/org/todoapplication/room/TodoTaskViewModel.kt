@@ -24,4 +24,8 @@ class TodoTaskViewModel(application: Application) : AndroidViewModel(application
     fun delete(todoTask: TodoTask) = viewModelScope.launch {
         repository.delete(todoTask.id)
     }
+
+    fun setData(todoTask: TodoTask) = viewModelScope.launch {
+        repository.update(todoTask.id, todoTask.title, todoTask.description, todoTask.completed)
+    }
 }

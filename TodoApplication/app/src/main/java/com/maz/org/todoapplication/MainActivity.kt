@@ -51,12 +51,15 @@ class MainActivity : AppCompatActivity(), OnItemClickListener {
             var description : String = ""
             data?.getStringExtra(NewTodoTaskActivity.REPLY_EXTRA_TITLE)?.let { title = it }
             data?.getStringExtra(NewTodoTaskActivity.REPLY_EXTRA_DESCRIPTION)?.let { description = it }
-            if (title.trim().isNotEmpty()) todoTaskViewModel.create(TodoTask(title, description))
+            val todoTask = TodoTask(title)
+            todoTask.description = description
+            if (title.trim().isNotEmpty()) todoTaskViewModel.create(todoTask)
         }
     }
 
     override fun onItemClicked(todoTask: TodoTask) {
-        todoTaskViewModel.delete(todoTask)
+        todoTask.completed = true
+        todoTaskViewModel.setData(todoTask)
     }
 
 }

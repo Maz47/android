@@ -19,7 +19,8 @@ abstract class TodoDatabase : RoomDatabase() {
             INSTANCE?.let {database ->
                 scope.launch {
                     var todoTaskDAO = database.todoTaskDAO()
-                    var todoTask = TodoTask("My Test", "This is a Test-Task for demonstration!")
+                    var todoTask = TodoTask("My Test")
+                    todoTask.description = "This is a Test-Task for demonstration purpose!"
                     todoTaskDAO.create(todoTask)
                 }
             }
